@@ -3,6 +3,9 @@
   <h1>MONOLITH INDUSTRIES</h1>
   <p><strong>Highly-opinionated, enterprise-grade Next.js infrastructure for one person.</strong></p>
   <p>
+    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjosheche%2Fmonolith-industries&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY,DATABASE_URL"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
+  </p>
+  <p>
     <a href="#quick-start">Get Started</a> &middot;
     <a href="#whats-included">What's Included</a> &middot;
     <a href="#customization">Customization</a>
